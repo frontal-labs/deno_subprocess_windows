@@ -1,0 +1,29 @@
+# Copyright 2018-2026 the Deno authors. MIT license.
+# Standalone copy of runtime/subprocess_windows from denoland/deno v2.9.7, with
+# the workspace dependency versions pinned explicitly and rand bumped to
+# 0.8.6. See NOTICE.md.
+
+[package]
+name = "deno_subprocess_windows"
+version = "0.54.0"
+authors = ["the Deno authors"]
+edition = "2024"
+license = "MIT"
+repository = "https://github.com/frontal-labs/deno_subprocess_windows"
+description = "Windows subprocess support for Deno (Frontal Labs fork)"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+futures-channel = "0.3.31"
+libc = "0.2.172"
+rand = "=0.8.6"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59.0", features = ["Win32_Security", "Win32_System_JobObjects", "Win32_System_Diagnostics_Debug", "Win32_Globalization", "Win32_System_Threading", "Win32_Storage_FileSystem", "Win32_System_Environment", "Win32_Foundation", "Win32_System_Kernel", "Win32_System_Memory", "Win32_System_ProcessStatus", "Win32_System_Registry", "Win32_UI_Shell", "Win32_System_Com", "Win32_System_WindowsProgramming", "Win32_UI_WindowsAndMessaging", "Win32_System_Pipes", "Win32_System_Console", "Win32_System_IO", "Win32_System_SystemInformation"] }
+
+[dev-dependencies]
+pretty_assertions = "1.4.1"
+os_pipe = { version = "=1.2.1", features = ["io_safety"] }
+parking_lot = "0.12.0"
