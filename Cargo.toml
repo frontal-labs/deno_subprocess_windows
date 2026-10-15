@@ -25,5 +25,5 @@ windows-sys = { version = "0.59.0", features = ["Win32_Security", "Win32_System_
 
 [dev-dependencies]
 pretty_assertions = "1.4.1"
-os_pipe = { version = "=1.2.1", features = ["io_safety"] }
+os_pipe = { version = "=1.2.3", features = ["io_safety"] }
 parking_lot = "0.12.0"
